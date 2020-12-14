@@ -1,4 +1,4 @@
-#tip-tap-vuetify
+# tiptap-vuetify-Test
 
 ## Project setup
 ```
