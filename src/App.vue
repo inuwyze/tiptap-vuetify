@@ -1,28 +1,48 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-container>
+    <tiptap-vuetify
+      v-model="content"
+      :extensions="extensions" />
+
+  </v-container>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+// import the component and the necessary extensions
+import { TiptapVuetify, Heading, Bold, Italic, Strike, Underline, Code, Paragraph, BulletList, OrderedList, ListItem, Link, Blockquote, HardBreak, HorizontalRule, History ,TodoList,TodoItem} from 'tiptap-vuetify'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  // specify TiptapVuetify component in "components"
+  components: { TiptapVuetify },
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  data: () => ({
+    content: `
+      <h3>TIPTAP</h3>`,
+    // declare extensions you want to use
+    extensions: [
+      History,
+      Blockquote,
+      Link,
+      Underline,
+      Strike,
+      Italic,
+      ListItem,
+      BulletList,
+      OrderedList,
+      [Heading, {
+        options: {
+          levels: [1, 2, 3]
+        }
+      }],
+      Bold,
+      Code,
+      HorizontalRule,
+      Paragraph,
+      HardBreak,
+      TodoList,
+      [TodoItem, {
+        options: {nested: true}
+      }],],  
+  }),}
+</script>
